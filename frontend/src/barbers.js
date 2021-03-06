@@ -1,23 +1,24 @@
 const barbers = [
      {
-          'id': '1',
+          '_id':'1',
           'name': 'John Mckenny',
           'image': '/images/barbers/John.jpg',
-          'rating':'3.5',
+          'rating':3.5,
           
-     }
+     },
      {
-          'id': '2',
+          '_id': '2',
           'name': 'Peter FitzGerald',
           'image': '/images/barbers/Peter.jpg',
-          'rating':'4.5',
+          'rating':4.5,
 
-     }
+     },
      {
-          'id': '4',
+          '_id': '3',
           'name': 'Marie Kennedy',
           'image': '/images/barbers/Marie.jpg',
-          'rating':'3.7',
+          'rating':3.7,
 
      }
 ]
+export default barbers
