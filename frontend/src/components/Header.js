@@ -9,7 +9,7 @@ function Header() {
                     <Nav.Link href="#home">About</Nav.Link>
                     <Nav.Link href="#services">Services</Nav.Link>
                     <Nav.Link href="#barbers">Barbers</Nav.Link>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                    <Navbar.Brand href="#home" className="ml-3">LOGO</Navbar.Brand>
                     <Nav.Link href="#booking">Booking</Nav.Link>
                     <Nav.Link href="#login">Login</Nav.Link>
                     <Nav.Link href="#contact">Contact</Nav.Link>
