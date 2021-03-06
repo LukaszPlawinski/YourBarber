@@ -7,12 +7,8 @@ function Barber({barber}) {
                <a href={`/barber/${barber._id}`}>
                     <Card.Img src={barber.image}/>
                     <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>
-                         Some quick example text to build on the card title and make up the bulk of
-                         the cards content.
-                    </Card.Text>
-                    <Button variant="outline-warning">Go somewhere</Button>
+                    <Card.Title>{barber.name}</Card.Title>
+                    <Button variant="outline-warning">Book</Button>
                     </Card.Body>
                </a>
           </Card>
