@@ -1,22 +1,31 @@
-import React from 'react'
-import { Container, Row, Navbar,Nav } from 'react-bootstrap'
+import React from "react";
+import { Container, Row, Navbar, Nav } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 function Header() {
-     return (
-          <header>
-               <Navbar bg="dark" variant="dark" className="justify-content-center">
-               <Nav>
-                    <Nav.Link href="#home">About</Nav.Link>
-                    <Nav.Link href="#services">Services</Nav.Link>
-                    <Nav.Link href="#barbers">Barbers</Nav.Link>
-                    <Navbar.Brand href="#home" className="ml-3">LOGO</Navbar.Brand>
-                    <Nav.Link href="#booking">Booking</Nav.Link>
-                    <Nav.Link href="#login">Login</Nav.Link>
-                    <Nav.Link href="#contact">Contact</Nav.Link>
-               </Nav>
-               </Navbar>
-          </header>
-     )
+  return (
+    <header>
+      <Navbar bg="dark" variant="dark" className="justify-content-center">
+        <Nav>
+          <LinkContainer to="/">
+            <Nav.Link>About</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/services">
+            <Nav.Link>Services</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/barbers">
+            <Nav.Link>Barbers</Nav.Link>
+          </LinkContainer>
+          <LinkContainer to="/">
+            <Navbar.Brand className="ml-3">LOGO</Navbar.Brand>
+          </LinkContainer>
+          <Nav.Link href="#booking">Booking</Nav.Link>
+          <Nav.Link href="#login">Login</Nav.Link>
+          <Nav.Link href="#contact">Contact</Nav.Link>
+        </Nav>
+      </Navbar>
+    </header>
+  );
 }
 
-export default Header
+export default Header;
