@@ -19,5 +19,14 @@ def getRoutes(request):
      ]
      return Response(routes)
 
+@api_view(['GET'])
 def getBarbers(request):
-     return JsonResponse(barbers,safe=False)
+     return Response(barbers)
+
+@api_view(['GET'])
+def getBarber(request, pk):
+     for i in barbers:
+          if i['_id'] ==pk:
+               barber=i
+               break
+     return Response(barber)
