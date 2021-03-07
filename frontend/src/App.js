@@ -13,7 +13,7 @@ function App() {
       <Header />
       <main>
         <Container className="text-center py-4">
-          <Route path={["/home", "/"]} component={Home} />
+          <Route path={["/home", "/"]} component={Home} exact />
           <Route path="/services" component={Services} exact />
           <Route path="/barbers" component={Barbers} exact />
         </Container>
