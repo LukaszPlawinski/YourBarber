@@ -4,4 +4,12 @@ from django.http import JsonResponse
 # Create your views here.
 
 def getRoutes(request):
-     return JsonResponse('Hi',safe=False)
+     routes=[
+          '/api/barbers/'
+          '/api/barbers/<id>'
+          '/api/barbers/create'
+          '/api/barbers/upload'
+          '/api/barbers/delete/<id>'
+          '/api/barbers/update/<id>'
+     ]
+     return JsonResponse(routes,safe=False)
