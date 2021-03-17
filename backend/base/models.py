@@ -15,12 +15,15 @@ class Service(models.Model):
 
 class Barber (models.Model):
      user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
-     # image
+     image = models.ImageField(null=True,blank=True)
      nickname = models.CharField(max_length=200, null=True,blank=True)
      description= models.TextField(null=True,blank=True)
      salary=models.DecimalField(max_digits=7,decimal_places=2,null=True,blank=True)
      hiredAt= models.DateTimeField()
      _id = models.AutoField(primary_key=True,editable=False)
+
+     def __str__(self):
+          return self.nickname
 
 
 class Appointment (models.Model):
@@ -30,3 +33,4 @@ class Appointment (models.Model):
      isPayed = models.BooleanField()
      paymentType = models.CharField(max_length=200, null=False,blank=False)
      paidAt = models.DateTimeField()
+     _id = models.AutoField(primary_key=True,editable=False)
