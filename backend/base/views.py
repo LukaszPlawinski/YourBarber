@@ -3,8 +3,9 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+from .models import Barber
 from .barbers import barbers
-
+from .serializers import BarberSerializer
 
 # Create your views here.
 @api_view(['GET'])
@@ -21,7 +22,9 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def getBarbers(request):
-     return Response(barbers)
+     barbers = Barber.objects.all()
+     serializer = BarberSerializer(barbers, many = True)
+     return Response(serializer.data)
 
 @api_view(['GET'])
 def getBarber(request, pk):
