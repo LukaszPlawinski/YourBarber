@@ -6,11 +6,11 @@ function Barber({ barber }) {
     <Card className="p-4 my-3 mx-3">
       <a href={`/barber/${barber._id}`}>
         <Card.Img src={barber.image} />
-        <Card.Body>
-          <Card.Title>{barber.name}</Card.Title>
-          <Button variant="outline-warning">Book</Button>
-        </Card.Body>
       </a>
+      <Card.Body>
+        <Card.Title>{barber.nickname}</Card.Title>
+        <Button variant="outline-warning">Book</Button>
+      </Card.Body>
     </Card>
   );
 }
