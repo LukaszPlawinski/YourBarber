@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { serviceListReducer } from "./reducers/serviceReducer";
+import { serviceListReducer } from "./reducers/serviceReducers";
 
 const initialState = {};
 
