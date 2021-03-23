@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Row, Col, ListGroup } from "react-bootstrap";
 import Service from "../components/Service";
+import Loader from "../components/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { listServices } from "../actions/serviceActions";
 
@@ -17,7 +18,7 @@ function Services() {
     <div>
       <h2 className="py-3">Services</h2>
       {loading ? (
-        <h3>Loading...</h3>
+        <Loader />
       ) : error ? (
         <h4>{error}</h4>
       ) : (
