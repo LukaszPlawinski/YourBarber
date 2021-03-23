@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { Row, Col, ListGroup } from "react-bootstrap";
 import Service from "../components/Service";
 import Loader from "../components/Loader";
+import Message from "../components/Message";
 import { useDispatch, useSelector } from "react-redux";
 import { listServices } from "../actions/serviceActions";
 
@@ -20,7 +20,7 @@ function Services() {
       {loading ? (
         <Loader />
       ) : error ? (
-        <h4>{error}</h4>
+        <Message variant="danger">{error}</Message>
       ) : (
         <Row className="justify-content-md-center">
           <ListGroup variant="flush">
