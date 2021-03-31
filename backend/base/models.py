@@ -35,3 +35,6 @@ class Appointment (models.Model):
      paymentType = models.CharField(max_length=200, null=False,blank=False)
      paidAt = models.DateTimeField()
      _id = models.AutoField(primary_key=True,editable=False)
+
+     def __str__(self):
+          return self.date
