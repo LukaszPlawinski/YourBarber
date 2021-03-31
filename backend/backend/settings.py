@@ -25,6 +25,10 @@ SECRET_KEY = 'cw&j11_s86gx@ffmx6q48&8c_j$876dh6r%rz8i61m(pcv@ijb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CORS_ALLOW_ALL_ORIGINS = [
+    "http://127.0.0.1:8000/",
+    "localhost:8000"
+]
 ALLOWED_HOSTS = []
 
 
@@ -42,6 +46,17 @@ INSTALLED_APPS = [
 
     'base.apps.BaseConfig',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=30)
+}
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
