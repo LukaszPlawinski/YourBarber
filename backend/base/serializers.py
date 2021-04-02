@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
-from .models import Barber, Service
+from rest_framework_simplejwt.tokens import RefreshToken
+from .models import Barber, Service, Appointment
 
 
 class BarberSerializer(serializers.ModelSerializer):
@@ -11,6 +12,11 @@ class BarberSerializer(serializers.ModelSerializer):
 class ServiceSerializer(serializers.ModelSerializer):
      class Meta:
           model = Service
+          fields = '__all__'
+
+class AppointmentSerializer(serializers.ModelSerializer):
+     class Meta:
+          model = Appointment
           fields = '__all__'
 class UserSerializer(serializers.ModelSerializer):
      name = serializers.SerializerMethodField(read_only=True)
@@ -30,3 +36,13 @@ class UserSerializer(serializers.ModelSerializer):
           if name == '':
                name = obj.email
           return name
+
+class UserSerializerWithToken(UserSerializer):
+     token = serializers.SerializerMethodField(read_only = True)
+     class Meta:
+          model = User
+          fields = ['id','isBarber','_id','name','username','email', 'token']
+
+     def get_token(self,obj):
+          token = RefreshToken.for_user(obj)
+          return str(token.access_token)
