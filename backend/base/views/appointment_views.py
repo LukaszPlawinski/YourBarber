@@ -31,11 +31,12 @@ def createAppointment(request):
 
      appointment = Appointment.objects.create(
           # user = user,
-          barber = data['barber'],
-          service = data['service'],
+          barber = Barber.objects.get(_id =data['barber']),
+          date = data['date'],
+          service = Service.objects.get(_id =data['service']),
           isPayed = data['isPayed'],
           paidAt = datetime.now()
      )
-     order.save()
+     appointment.save()
      serializer = AppointmentSerializer(appointment,many= False)
      return Response(serializer.data)
