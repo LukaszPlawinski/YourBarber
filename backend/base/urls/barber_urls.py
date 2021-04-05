@@ -4,5 +4,5 @@ from base.views import barber_views as views
 
 urlpatterns = [
      path('', views.getBarbers, name="barbers"),
-     path('/<str:pk>', views.getBarber, name="barber"),
+     path('<str:pk>', views.getBarber, name="barber"),
 ]
