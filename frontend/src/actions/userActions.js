@@ -3,7 +3,7 @@ import {
   USER_LOGIN_REQUEST,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
-  USER_LOGIN_LOGOUT,
+  USER_LOGOUT,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
   USER_REGISTER_FAIL,
@@ -43,7 +43,7 @@ export const login = (email, password) => async (dispatch) => {
 
 export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
-  dispatch({ type: USER_LOGIN_LOGOUT });
+  dispatch({ type: USER_LOGOUT });
 };
 
 export const register = (name, email, password) => async (dispatch) => {
@@ -59,11 +59,15 @@ export const register = (name, email, password) => async (dispatch) => {
 
     const { data } = await axios.post(
       "/api/users/register",
-      { name: name, username: email, password: password },
+      { name: name, email: email, password: password },
       config
     );
     dispatch({
       type: USER_REGISTER_SUCCESS,
+      payload: data,
+    });
+    dispatch({
+      type: USER_LOGIN_SUCCESS,
       payload: data,
     });
     localStorage.setItem("userInfo", JSON.stringify(data));
