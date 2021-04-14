@@ -1,7 +1,14 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Card, Button } from "react-bootstrap";
+import { setBarber } from "../actions/barberActions";
 
 function Barber({ barber }) {
+  const dispatch = useDispatch();
+  const barberList = useSelector((state) => state.barberList);
+  const handleClick = () => {
+    dispatch(setBarber(barber));
+  };
   return (
     <Card className="p-4 my-3 mx-3">
       <a href={`/barber/${barber._id}`}>
