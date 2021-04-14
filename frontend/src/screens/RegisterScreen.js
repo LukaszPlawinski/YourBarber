@@ -30,21 +30,23 @@ function RegisterScreen({ location, history }) {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if(password != confirmPassword){
-      setMessage('Password doesnt match')
+    if (password !== confirmPassword) {
+      setMessage("Password doesnt match");
+    } else {
+      dispatch(register(name, email, password));
     }
-    dispatch(register(name, email, password));
   };
   return (
     <FormContainer>
       <h1>Register</h1>
+      {message && <Message variant="danger">{message}</Message>}
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-
-      <Form.Group controlId="name">
-          <Form.Label>PName/Form.Label>
+        <Form.Group controlId="name">
+          <Form.Label>Name</Form.Label>
           <Form.Control
+            required
             type="name"
             placeholder="Enter Name"
             value={name}
@@ -55,6 +57,7 @@ function RegisterScreen({ location, history }) {
         <Form.Group controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
+            required
             type="email"
             placeholder="Enter Email"
             value={email}
@@ -65,6 +68,7 @@ function RegisterScreen({ location, history }) {
         <Form.Group controlId="password">
           <Form.Label>Password</Form.Label>
           <Form.Control
+            required
             type="password"
             placeholder="Enter Password"
             value={password}
@@ -84,17 +88,16 @@ function RegisterScreen({ location, history }) {
         <Button type="submit" variant="primary">
           Register
         </Button>
-        </Form>
-    
-        <Row className="py-3">
+      </Form>
+
+      <Row className="py-3">
         <Col>
-          Have an accoumt ?{" "}
+          Have an account ?{" "}
           <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
             Sign In
           </Link>
         </Col>
       </Row>
-
     </FormContainer>
   );
 }
