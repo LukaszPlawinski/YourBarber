@@ -3,6 +3,7 @@ import {
   SERVICE_LIST_REQUEST,
   SERVICE_LIST_SUCCESS,
   SERVICE_LIST_FAIL,
+  SERVICE_USER_SET,
 } from "../constants/serviceConstants";
 
 export const listServices = () => async (dispatch) => {
@@ -24,4 +25,11 @@ export const listServices = () => async (dispatch) => {
           : error.message,
     });
   }
+};
+
+export const setUserService = (service_id) => async (dispatch) => {
+  dispatch({
+    type: SERVICE_USER_SET,
+    user_service: service_id,
+  });
 };
