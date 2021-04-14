@@ -29,9 +29,9 @@ function Header() {
           <LinkContainer to="/">
             <Navbar.Brand className="ml-3">LOGO</Navbar.Brand>
           </LinkContainer>
-
-          <Nav.Link href="#booking">Booking</Nav.Link>
-
+          <LinkContainer to="/booking">
+            <Nav.Link>Bookings</Nav.Link>
+          </LinkContainer>
           {userInfo ? (
             <NavDropdown title={userInfo.name} id="username">
               <LinkContainer to="/profile">
