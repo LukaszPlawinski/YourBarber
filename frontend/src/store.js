@@ -3,9 +3,11 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { serviceListReducer } from "./reducers/serviceReducers";
 import { barberListReducer } from "./reducers/barberReducers";
+import { appointmentsReducer } from "./reducers/appointmentsReducers";
 import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
 
 const reducer = combineReducers({
+  appointmentsList: appointmentsReducer,
   serviceList: serviceListReducer,
   barberList: barberListReducer,
   userLogin: userLoginReducer,
