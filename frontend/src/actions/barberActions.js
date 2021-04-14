@@ -3,6 +3,7 @@ import {
   BARBER_LIST_REQUEST,
   BARBER_LIST_SUCCESS,
   BARBER_LIST_FAIL,
+  BARBER_USER_SET,
 } from "../constants/barberConstants";
 
 export const listBarbers = () => async (dispatch) => {
@@ -24,4 +25,11 @@ export const listBarbers = () => async (dispatch) => {
           : error.message,
     });
   }
+};
+
+export const setBarber = (barber_id) => (dispatch) => {
+  dispatch({
+    type: BARBER_USER_SET,
+    user_barber: barber_id,
+  });
 };
