@@ -2,16 +2,22 @@ import {
   SERVICE_LIST_REQUEST,
   SERVICE_LIST_SUCCESS,
   SERVICE_LIST_FAIL,
+  SERVICE_USER_SET,
 } from "../constants/serviceConstants";
 
-export const serviceListReducer = (state = { services: [] }, action) => {
+export const serviceListReducer = (
+  state = { services: [], user_service: {} },
+  action
+) => {
   switch (action.type) {
     case SERVICE_LIST_REQUEST:
-      return { loading: true, services: [] };
+      return { ...state, loading: true, services: [] };
     case SERVICE_LIST_SUCCESS:
-      return { loading: false, services: action.payload };
+      return { ...state, loading: false, services: action.payload };
     case SERVICE_LIST_FAIL:
-      return { loading: false, error: action.payload };
+      return { ...state, loading: false, error: action.payload };
+    case SERVICE_USER_SET:
+      return { ...state, user_service: action.user_service };
     default:
       return state;
   }
