@@ -4,7 +4,11 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import { serviceListReducer } from "./reducers/serviceReducers";
 import { barberListReducer } from "./reducers/barberReducers";
 import { appointmentsReducer } from "./reducers/appointmentsReducers";
-import { userLoginReducer, userRegisterReducer } from "./reducers/userReducers";
+import {
+  userLoginReducer,
+  userRegisterReducer,
+  userDetailsReducer,
+} from "./reducers/userReducers";
 
 const reducer = combineReducers({
   appointmentsList: appointmentsReducer,
@@ -12,6 +16,7 @@ const reducer = combineReducers({
   barberList: barberListReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,
+  userDetails: userDetailsReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
