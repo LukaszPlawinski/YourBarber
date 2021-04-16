@@ -6,7 +6,6 @@ import { setUserDate } from "../actions/appointmentsActions";
 import "react-datepicker/dist/react-datepicker.css";
 
 function Appointments() {
-  // redux dodanie nowej akcji do reduxa oraz zainicjalizowanie globalnego statea z wybrana data
   const dispatch = useDispatch();
   const { error, loading, appointments, user_appointment } = useSelector(
     (state) => state.appointmentsList
@@ -19,14 +18,40 @@ function Appointments() {
     dispatch(setUserDate(date));
   };
 
+  const filterPassedTime = (time) => {
+    var answer = true;
+
+    const appointmentDates = appointments.map((appointment) => {
+      if (barber._id === appointment.barber) {
+        return parseISO(appointment.date).getTime();
+      }
+    });
+
+    const currentDate = new Date();
+    const selectedDate = new Date(time);
+    return (
+      currentDate.getTime() < selectedDate.getTime() &&
+      !appointmentDates.includes(selectedDate.getTime())
+    );
+  };
+  const isWeekday = (date) => {
+    const day = date.getDay();
+    return day !== 0 && day !== 6;
+  };
+
   return (
     <div>
-      <h1>Appointments</h1>
+      <h3 className="py-3">Chose date:</h3>
       <DatePicker
         showTimeSelect
+        placeholderText="Select date and time"
+        filterDate={isWeekday}
         selected={user_appointment}
         onChange={(date) => handleDataChange(date)}
-        on
+        minTime={setHours(setMinutes(new Date(), 0), 8)}
+        maxTime={setHours(setMinutes(new Date(), 0), 17)}
+        filterTime={filterPassedTime}
+        dateFormat="MMMM d, yyyy h:mm aa"
       />
     </div>
   );
