@@ -4,8 +4,11 @@ import { setAppointments } from "../actions/appointmentsActions";
 import DatePicker from "react-datepicker";
 import { setUserDate } from "../actions/appointmentsActions";
 import "react-datepicker/dist/react-datepicker.css";
+import setHours from "date-fns/setHours";
+import setMinutes from "date-fns/setMinutes";
+import parseISO from "date-fns/parseISO";
 
-function Appointments() {
+function Appointments({ barber }) {
   const dispatch = useDispatch();
   const { error, loading, appointments, user_appointment } = useSelector(
     (state) => state.appointmentsList
