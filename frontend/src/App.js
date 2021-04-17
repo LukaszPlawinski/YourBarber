@@ -8,6 +8,7 @@ import Booking from "./screens/Booking";
 import Home from "./screens/Home";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
+import ProfileScreen from "./screens/ProfileScreen";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path={["/home", "/"]} component={Home} exact />
           <Route path="/login" component={LoginScreen} />
           <Route path="/register" component={RegisterScreen} />
+          <Route path="/profile" component={ProfileScreen} />
           <Route path="/services" component={Services} exact />
           <Route path="/barbers" component={Barbers} exact />
           <Route path="/booking" component={Booking} />
