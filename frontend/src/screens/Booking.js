@@ -51,9 +51,9 @@ function Booking() {
         <Services />
         <Barbers />
         <Appointments />
-        {barberList.user_barber &&
-        serviceList.user_service &&
-        appointmentsList.user_appointment ? (
+        {Object.keys(barberList.user_barber).length !== 0 &&
+        Object.keys(serviceList.user_service).length !== 0 &&
+        appointmentsList.user_appointment !== "" ? (
           <Button
             onClick={handleClick}
             style={{
