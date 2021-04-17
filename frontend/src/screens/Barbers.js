@@ -21,7 +21,7 @@ function Barbers() {
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <Row>
+        <Row className="justify-content-sm-center">
           {barbers.map((barber) => (
             <Col key={barber._id} sm={12} md={6} lg={4}>
               <Barber barber={barber} />
