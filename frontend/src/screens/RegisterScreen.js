@@ -79,6 +79,7 @@ function RegisterScreen({ location, history }) {
         <Form.Group controlId="passwordConfirm">
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
+            required
             type="password"
             placeholder="Confirm Password"
             value={confirmPassword}
