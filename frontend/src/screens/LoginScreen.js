@@ -24,7 +24,7 @@ function LoginScreen({ location, history }) {
       history.push(redirect);
     }
   }, [history, userInfo, redirect]);
- 
+
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login(email, password));
