@@ -3,11 +3,12 @@ import {
   APPOINTMENTS_SET_SUCCESS,
   APPOINTMENTS_SET_FAIL,
   APPOINTMENT_USER_SET,
+  APPOINTMENT_USER_RESET,
   APPOINTMENT_IS_PAID,
 } from "../constants/appointmentsConstants";
 
 export const appointmentsReducer = (
-  state = { appointments: [], user_appointment: new Date(), is_paid: false },
+  state = { appointments: [], user_appointment: "", is_paid: false },
   action
 ) => {
   switch (action.type) {
@@ -23,6 +24,8 @@ export const appointmentsReducer = (
     case APPOINTMENT_USER_SET: {
       return { ...state, user_appointment: action.user_date };
     }
+    case APPOINTMENT_USER_RESET:
+      return { user_appointment: "" };
     case APPOINTMENT_IS_PAID: {
       return { ...state, is_paid: action.is_paid };
     }

@@ -5,6 +5,7 @@ import {
   APPOINTMENTS_SET_REQUEST,
   APPOINTMENT_USER_SET,
   APPOINTMENT_IS_PAID,
+  APPOINTMENT_USER_RESET,
 } from "../constants/appointmentsConstants";
 
 export const setAppointments = () => async (dispatch) => {
@@ -32,6 +33,11 @@ export const setUserDate = (date) => async (dispatch) => {
   dispatch({
     type: APPOINTMENT_USER_SET,
     user_date: date,
+  });
+};
+export const appointmentUserReset = () => async (dispatch) => {
+  dispatch({
+    type: APPOINTMENT_USER_RESET,
   });
 };
 
