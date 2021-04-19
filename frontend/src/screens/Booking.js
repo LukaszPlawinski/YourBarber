@@ -11,9 +11,10 @@ function Booking() {
     logged: false,
     isConfirmed: false,
   });
-  const { barberList, appointmentsList, serviceList } = useSelector(
+  const { barberList, appointmentsList, serviceList, userLogin } = useSelector(
     (state) => state
   );
+  const userInfo = userLogin.userInfo;
   useEffect(() => {
     isUserLogged();
   }, []);
@@ -42,6 +43,7 @@ function Booking() {
           barber={barberList.user_barber}
           service={serviceList.user_service}
           appointment={appointmentsList.user_appointment}
+          user={userInfo}
         />
       </div>
     );
@@ -49,8 +51,14 @@ function Booking() {
     return (
       <div>
         <Services />
-        <Barbers />
-        <Appointments />
+        {Object.keys(serviceList.user_service).length !== 0 ? (
+          <Barbers />
+        ) : null}
+        {Object.keys(barberList.user_barber).length !== 0 &&
+        Object.keys(serviceList.user_service).length !== 0 ? (
+          <Appointments barber={barberList.user_barber} />
+        ) : null}
+
         {Object.keys(barberList.user_barber).length !== 0 &&
         Object.keys(serviceList.user_service).length !== 0 &&
         appointmentsList.user_appointment !== "" ? (
