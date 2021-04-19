@@ -1,15 +1,19 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from decouple import config
+import stripe 
+stripe.api_key = config('STRIPE_SK')
 
-from base.models import Barber, Service,Appointment
+from base.models import Barber, Service,Appointment,User
 from base.serializers import BarberSerializer, ServiceSerializer,AppointmentSerializer, UserSerializer, UserSerializerWithToken
 
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
-from datetime import datetime
-# BARBERS VIEWS
+
+from django.utils import timezone
 
 @api_view(['GET'])
 def getAppointments(request):
@@ -17,6 +21,14 @@ def getAppointments(request):
      serializer = AppointmentSerializer(appointments, many = True)
      return Response(serializer.data)
 
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def getMyAppointments(request):
+     user = request.user
+     appointments=user.appointment_set.all()
+     serializer = AppointmentSerializer(appointments,many= True)
+     return Response(serializer.data)
 @api_view(['GET'])
 def getAppointmentById(request, pk):
 
@@ -26,17 +38,28 @@ def getAppointmentById(request, pk):
 
 @api_view(['POST'])
 def createAppointment(request):
-     # user= user
      data=request.data
-
      appointment = Appointment.objects.create(
-          # user = user,
+          user = User.objects.get(id=data['user']),
           barber = Barber.objects.get(_id =data['barber']),
           date = data['date'],
           service = Service.objects.get(_id =data['service']),
+          paymentType='card',
           isPayed = data['isPayed'],
-          paidAt = datetime.now()
+          paidAt = timezone.now()
      )
      appointment.save()
      serializer = AppointmentSerializer(appointment,many= False)
      return Response(serializer.data)
+
+@api_view(['POST'])
+def createPaymentIntent(request):
+     data = request.data
+
+     paymentIntent = stripe.PaymentIntent.create(
+          amount=int(data['amount'])*100,
+          currency=data['currency'],
+          payment_method_types=["card"]
+     )
+
+     return Response(paymentIntent['client_secret'])
