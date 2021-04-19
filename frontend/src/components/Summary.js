@@ -1,11 +1,11 @@
 import React from "react";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import CheckoutForm from "../components/Checkoutform";
+import CheckoutForm from "../components/CheckoutForm";
 
-const stripePromise = loadStripe(); // pk stripe key into brackets
+const stripePromise = loadStripe(process.env.REACT_APP_PK_STRIPE); // pk stripe key into brackets
 
-function Summary({ barber, service, appointment }) {
+function Summary({ barber, service, appointment, history, user }) {
   return (
     <div>
       <h3>Your appointment details</h3>
@@ -21,6 +21,7 @@ function Summary({ barber, service, appointment }) {
           service={service}
           appointment={appointment}
           history={history}
+          user={user}
         />
       </Elements>
     </div>
