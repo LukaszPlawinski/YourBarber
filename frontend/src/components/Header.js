@@ -3,15 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { logout } from "../actions/userActions";
+import { appointmentUserReset } from "../actions/appointmentsActions";
+import { resetUserBarber } from "../actions/barberActions";
+import { resetUserService } from "../actions/serviceActions";
+import { useHistory } from "react-router-dom";
 
 function Header() {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-
+  let history = useHistory();
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
     dispatch(logout());
+    dispatch(appointmentUserReset());
+    dispatch(resetUserBarber());
+    dispatch(resetUserService());
+    history.push("/home");
   };
   return (
     <header>
