@@ -4,6 +4,7 @@ import {
   BARBER_LIST_SUCCESS,
   BARBER_LIST_FAIL,
   BARBER_USER_SET,
+  BARBER_USER_RESET,
 } from "../constants/barberConstants";
 
 export const listBarbers = () => async (dispatch) => {
@@ -31,5 +32,10 @@ export const setBarber = (barber_id) => (dispatch) => {
   dispatch({
     type: BARBER_USER_SET,
     user_barber: barber_id,
+  });
+};
+export const resetUserBarber = () => (dispatch) => {
+  dispatch({
+    type: BARBER_USER_RESET,
   });
 };

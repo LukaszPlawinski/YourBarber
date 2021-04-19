@@ -3,6 +3,7 @@ import {
   BARBER_LIST_SUCCESS,
   BARBER_LIST_FAIL,
   BARBER_USER_SET,
+  BARBER_USER_RESET,
 } from "../constants/barberConstants";
 
 export const barberListReducer = (
@@ -18,6 +19,8 @@ export const barberListReducer = (
       return { ...state, loading: false, error: action.payload };
     case BARBER_USER_SET:
       return { ...state, user_barber: action.user_barber };
+    case BARBER_USER_RESET:
+      return { ...state, user_barber: {} };
     default:
       return state;
   }
