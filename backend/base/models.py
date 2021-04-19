@@ -27,9 +27,9 @@ class Barber (models.Model):
 
 
 class Appointment (models.Model):
-     user =  models.OneToOneField(User, on_delete=models.SET_NULL,null=True)
-     barber = models.OneToOneField(Barber, on_delete=models.SET_NULL,null=True)
-     service = models.OneToOneField(Service, on_delete=models.SET_NULL,null=True)
+     user =  models.ForeignKey(User, on_delete=models.SET_NULL,null=True)
+     barber = models.ForeignKey(Barber, on_delete=models.SET_NULL,null=True)
+     service = models.ForeignKey(Service, on_delete=models.SET_NULL,null=True)
      date = models.DateTimeField()
      isPayed = models.BooleanField()
      paymentType = models.CharField(max_length=200, null=False,blank=False)
