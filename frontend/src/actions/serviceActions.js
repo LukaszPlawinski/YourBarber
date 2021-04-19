@@ -4,6 +4,7 @@ import {
   SERVICE_LIST_SUCCESS,
   SERVICE_LIST_FAIL,
   SERVICE_USER_SET,
+  SERVICE_USER_RESET,
 } from "../constants/serviceConstants";
 
 export const listServices = () => async (dispatch) => {
@@ -31,5 +32,10 @@ export const setUserService = (service_id) => async (dispatch) => {
   dispatch({
     type: SERVICE_USER_SET,
     user_service: service_id,
+  });
+};
+export const resetUserService = () => async (dispatch) => {
+  dispatch({
+    type: SERVICE_USER_RESET,
   });
 };

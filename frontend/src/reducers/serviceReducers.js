@@ -3,6 +3,7 @@ import {
   SERVICE_LIST_SUCCESS,
   SERVICE_LIST_FAIL,
   SERVICE_USER_SET,
+  SERVICE_USER_RESET,
 } from "../constants/serviceConstants";
 
 export const serviceListReducer = (
@@ -18,6 +19,8 @@ export const serviceListReducer = (
       return { ...state, loading: false, error: action.payload };
     case SERVICE_USER_SET:
       return { ...state, user_service: action.user_service };
+    case SERVICE_USER_RESET:
+      return { ...state, user_service: {} };
     default:
       return state;
   }
