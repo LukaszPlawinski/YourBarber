@@ -23,8 +23,10 @@ function Home() {
   if (is_paid == true) {
     return (
       <div>
-        <Message variant="success">Succesfully added appointment</Message>
-        <Button onClick={handleClick}>Okay</Button>
+        <Message variant="light">Succesfully created appointment!</Message>
+        <Button variant="outline-warning" onClick={handleClick}>
+          Okay
+        </Button>
       </div>
     );
   } else {
