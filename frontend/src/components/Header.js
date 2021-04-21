@@ -25,9 +25,6 @@ function Header() {
     <header>
       <Navbar bg="dark" variant="dark" className="justify-content-center">
         <Nav>
-          <LinkContainer to="/">
-            <Nav.Link>About</Nav.Link>
-          </LinkContainer>
           <LinkContainer to="/services">
             <Nav.Link>Services</Nav.Link>
           </LinkContainer>
@@ -38,13 +35,22 @@ function Header() {
             <Navbar.Brand className="ml-3">LOGO</Navbar.Brand>
           </LinkContainer>
           <LinkContainer to="/booking">
-            <Nav.Link>Bookings</Nav.Link>
+            <Nav.Link>Booking</Nav.Link>
           </LinkContainer>
           {userInfo ? (
             <NavDropdown title={userInfo.name} id="username">
               <LinkContainer to="/profile">
                 <NavDropdown.Item>Profile</NavDropdown.Item>
               </LinkContainer>
+              {userInfo.isBarber ? (
+                <LinkContainer to="/barberappointments">
+                  <NavDropdown.Item>Barber Appointments</NavDropdown.Item>
+                </LinkContainer>
+              ) : (
+                <LinkContainer to="/myappointments">
+                  <NavDropdown.Item>My Appointments</NavDropdown.Item>
+                </LinkContainer>
+              )}
 
               <NavDropdown.Item onClick={logoutHandler}>
                 Logout
@@ -55,8 +61,6 @@ function Header() {
               <Nav.Link>Login</Nav.Link>
             </LinkContainer>
           )}
-
-          <Nav.Link href="#contact">Contact</Nav.Link>
         </Nav>
       </Navbar>
     </header>
