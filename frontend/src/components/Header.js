@@ -26,19 +26,27 @@ function Header() {
       <Navbar bg="dark" variant="dark" className="justify-content-center">
         <Nav>
           <LinkContainer to="/services">
-            <Nav.Link>Services</Nav.Link>
+            <Nav.Link className="mt-2 ">Services</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/barbers">
-            <Nav.Link>Barbers</Nav.Link>
+            <Nav.Link className="mt-2">Barbers</Nav.Link>
           </LinkContainer>
           <LinkContainer to="/">
-            <Navbar.Brand className="ml-3">LOGO</Navbar.Brand>
+            <Navbar.Brand className="ml-3 ">
+              <img
+                src="/images/Logo.png"
+                width="50"
+                height="50"
+                className="d-inline-block align-top"
+                alt="React Bootstrap logo"
+              />
+            </Navbar.Brand>
           </LinkContainer>
           <LinkContainer to="/booking">
-            <Nav.Link>Booking</Nav.Link>
+            <Nav.Link className="mt-2">Booking</Nav.Link>
           </LinkContainer>
           {userInfo ? (
-            <NavDropdown title={userInfo.name} id="username">
+            <NavDropdown className="mt-2" title={userInfo.name} id="username">
               <LinkContainer to="/profile">
                 <NavDropdown.Item>Profile</NavDropdown.Item>
               </LinkContainer>
@@ -58,7 +66,7 @@ function Header() {
             </NavDropdown>
           ) : (
             <LinkContainer to="/login">
-              <Nav.Link>Login</Nav.Link>
+              <Nav.Link className="mt-2">Login</Nav.Link>
             </LinkContainer>
           )}
         </Nav>
