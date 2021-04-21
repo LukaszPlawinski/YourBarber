@@ -9,6 +9,8 @@ import Home from "./screens/Home";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
 import ProfileScreen from "./screens/ProfileScreen";
+import MyAppointmentsScreen from "./screens/MyAppointmentsScreen";
+import BarberAppointmentsScreen from "./screens/BarberAppointmentsScreen";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 function App() {
@@ -24,6 +26,11 @@ function App() {
           <Route path="/services" component={Services} exact />
           <Route path="/barbers" component={Barbers} exact />
           <Route path="/booking" component={Booking} />
+          <Route path="/myappointments" component={MyAppointmentsScreen} />
+          <Route
+            path="/barberappointments"
+            component={BarberAppointmentsScreen}
+          />
         </Container>
       </main>
       <Footer />
