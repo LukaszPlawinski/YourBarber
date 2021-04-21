@@ -44,7 +44,7 @@ function Appointments({ barber }) {
 
   return (
     <div>
-      <h3 className="py-3">Chose date:</h3>
+      <h4 className="py-3">Select Date</h4>
       <DatePicker
         showTimeSelect
         placeholderText="Select date and time"
