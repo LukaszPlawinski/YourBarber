@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import Barbers from "./Barbers";
 import Services from "./Services";
 import Appointments from "./Appointments";
 import Summary from "../components/Summary";
-import { Button } from "react-bootstrap";
+import Message from "../components/Message";
+import { Button, Row, Col } from "react-bootstrap";
 
 function Booking() {
   const [state, setState] = useState({
@@ -18,7 +20,10 @@ function Booking() {
   useEffect(() => {
     isUserLogged();
   }, []);
-
+  let history = useHistory();
+  const handleBtnClick = () => {
+    history.push("/login");
+  };
   const handleClick = () => {
     setState({
       ...state,
@@ -76,7 +81,18 @@ function Booking() {
       </div>
     );
   } else {
-    return <p>You are not logged</p>;
+    return (
+      <React.Fragment>
+        <Message variant="light">You are not logged in.</Message>
+        <Button
+          onClick={handleBtnClick}
+          type="submit"
+          variant="outline-warning"
+        >
+          Login
+        </Button>
+      </React.Fragment>
+    );
   }
 }
 
