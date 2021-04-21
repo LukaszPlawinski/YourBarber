@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setAppointmentIsPaid } from "../actions/appointmentsActions";
 import axios from "axios";
 
-import { useHistory } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 
 function CheckoutForm({ amount, barber, service, appointment, user }) {
   const dispatch = useDispatch();
@@ -84,7 +84,8 @@ function CheckoutForm({ amount, barber, service, appointment, user }) {
           options={{
             style: {
               base: {
-                color: "#32325D",
+                color: "#BFBB50",
+                border: "1px solid white",
                 fontWeight: 500,
                 fontFamily: "Source Code Pro, Consolas, Menlo, monospace",
                 fontSize: "16px",
@@ -110,7 +111,12 @@ function CheckoutForm({ amount, barber, service, appointment, user }) {
           }}
         />
       </fieldset>
-      <Button style={{ marginTop: "20px" }} type="submit" disabled={!stripe}>
+      <Button
+        style={{ marginTop: "20px" }}
+        variant="outline-warning"
+        type="submit"
+        disabled={!stripe}
+      >
         Pay
       </Button>
     </form>
