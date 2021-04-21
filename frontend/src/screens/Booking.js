@@ -67,7 +67,7 @@ function Booking() {
             onClick={handleClick}
             style={{
               marginTop: "30px",
-              background: "#333",
+              background: "#282828",
             }}
           >
             Next
