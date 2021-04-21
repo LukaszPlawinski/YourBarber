@@ -2,20 +2,25 @@ import React, { useEffect } from "react";
 import Barber from "../components/Barber";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { listBarbers } from "../actions/barberActions";
+import { useHistory } from "react-router-dom";
 
-function Barbers() {
+function Barbers({ location }) {
   const dispatch = useDispatch();
   const barberList = useSelector((state) => state.barberList);
   const { error, loading, barbers } = barberList;
+  let history = useHistory();
+  const handleClick = () => {
+    history.push("/booking");
+  };
   useEffect(() => {
     dispatch(listBarbers());
   }, [dispatch]);
   return (
     <div>
-      <h2 className="py-3">Barbers</h2>
+      <h4 className="py-3">Select barber</h4>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -29,6 +34,18 @@ function Barbers() {
           ))}
         </Row>
       )}
+      {Object.keys(barberList.user_barber).length !== 0 &&
+      location.pathname == "/barbers" ? (
+        <Button
+          variant="outline-warning"
+          onClick={handleClick}
+          style={{
+            marginTop: "30px",
+          }}
+        >
+          Book appointment
+        </Button>
+      ) : null}
     </div>
   );
 }
