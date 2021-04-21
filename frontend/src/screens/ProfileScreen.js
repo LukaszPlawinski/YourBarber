@@ -56,8 +56,8 @@ function ProfileScreen({ history }) {
     }
   };
   return (
-    <Row>
-      <Col md={3}>
+    <Row className="justify-content-sm-center">
+      <Col xs={12} md={6}>
         <h2>User Profile</h2>
         {message && <Message variant="danger">{message}</Message>}
         {error && <Message variant="danger">{error}</Message>}
@@ -109,7 +109,6 @@ function ProfileScreen({ history }) {
           </Button>
         </Form>
       </Col>
-      <Col md={9}>My Appointments</Col>
     </Row>
   );
 }
