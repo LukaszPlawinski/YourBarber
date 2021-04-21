@@ -20,7 +20,7 @@ function Barbers({ location }) {
   }, [dispatch]);
   return (
     <div>
-      <h4 className="py-3">Select barber</h4>
+      <h4 className="py-3">Select Barber</h4>
       {loading ? (
         <Loader />
       ) : error ? (

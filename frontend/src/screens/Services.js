@@ -27,7 +27,7 @@ function Services({ location }) {
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
-        <Row className="justify-content-sm-center">
+        <Row className="justify-content-center">
           <ListGroup variant="flush">
             {services.map((service) => (
               <Col key={service._id} sm={12}>
