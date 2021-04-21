@@ -55,15 +55,18 @@ function LoginScreen({ location, history }) {
           ></Form.Control>
         </Form.Group>
 
-        <Button type="submit" variant="primary">
-          Sign In
+        <Button type="submit" variant="outline-warning">
+          Login
         </Button>
       </Form>
 
       <Row className="py-3">
         <Col>
           New Customer ?{" "}
-          <Link to={redirect ? `/register?redirect=${redirect}` : "/register"}>
+          <Link
+            style={{ color: "#FF8802" }}
+            to={redirect ? `/register?redirect=${redirect}` : "/register"}
+          >
             Register
           </Link>
         </Col>

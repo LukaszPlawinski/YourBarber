@@ -86,7 +86,7 @@ function RegisterScreen({ location, history }) {
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
-        <Button type="submit" variant="primary">
+        <Button type="submit" variant="outline-warning">
           Register
         </Button>
       </Form>
@@ -94,8 +94,11 @@ function RegisterScreen({ location, history }) {
       <Row className="py-3">
         <Col>
           Have an account ?{" "}
-          <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
-            Sign In
+          <Link
+            style={{ color: "#FF8802" }}
+            to={redirect ? `/login?redirect=${redirect}` : "/login"}
+          >
+            Login
           </Link>
         </Col>
       </Row>
