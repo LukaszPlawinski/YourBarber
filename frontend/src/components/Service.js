@@ -12,8 +12,7 @@ function Service({ service }) {
   if (serviceList.user_service._id == service._id) {
     return (
       <ListGroup.Item
-        style={{ cursor: "pointer" }}
-        active
+        style={{ cursor: "pointer", border: "2px solid orange" }}
         onClick={handleClick}
       >
         {service.serviceName} - {service.price}
