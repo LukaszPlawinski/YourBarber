@@ -6,6 +6,9 @@ import {
   APPOINTMENT_USER_SET,
   APPOINTMENT_IS_PAID,
   APPOINTMENT_USER_RESET,
+  APPOINTMENTS_MY_LIST_REQUEST,
+  APPOINTMENTS_MY_LIST_SUCCESS,
+  APPOINTMENTS_MY_LIST_FAIL,
 } from "../constants/appointmentsConstants";
 
 export const setAppointments = () => async (dispatch) => {
@@ -46,4 +49,40 @@ export const setAppointmentIsPaid = (is_paid) => (dispatch) => {
     type: APPOINTMENT_IS_PAID,
     is_paid: is_paid,
   });
+};
+
+export const listMyAppointments = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: APPOINTMENTS_MY_LIST_REQUEST,
+    });
+    const {
+      userLogin: { userInfo },
+    } = getState();
+
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(
+      `/api/appointments/myappointments`,
+      config
+    );
+
+    dispatch({
+      type: APPOINTMENTS_MY_LIST_SUCCESS,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: APPOINTMENTS_MY_LIST_FAIL,
+      payload:
+        err.response && err.response.data.message
+          ? err.response.data.message
+          : err.message,
+    });
+  }
 };
