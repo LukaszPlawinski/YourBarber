@@ -3,12 +3,16 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { serviceListReducer } from "./reducers/serviceReducers";
 import { barberListReducer } from "./reducers/barberReducers";
-import { appointmentsReducer } from "./reducers/appointmentsReducers";
+import {
+  appointmentsReducer,
+  appointmentsMyListReducer,
+} from "./reducers/appointmentsReducers";
 import {
   userLoginReducer,
   userRegisterReducer,
   userDetailsReducer,
   userUpdateProfileReducer,
+  userListReducer,
 } from "./reducers/userReducers";
 
 const reducer = combineReducers({
@@ -19,6 +23,8 @@ const reducer = combineReducers({
   userRegister: userRegisterReducer,
   userDetails: userDetailsReducer,
   userUpdateProfile: userUpdateProfileReducer,
+  myList: appointmentsMyListReducer,
+  userList: userListReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem("userInfo")
