@@ -50,9 +50,9 @@ function Booking() {
   } else if (state.logged) {
     return (
       <div>
-        <Services />
+        <Services location />
         {Object.keys(serviceList.user_service).length !== 0 ? (
-          <Barbers />
+          <Barbers location />
         ) : null}
         {Object.keys(barberList.user_barber).length !== 0 &&
         Object.keys(serviceList.user_service).length !== 0 ? (
@@ -63,9 +63,11 @@ function Booking() {
         Object.keys(serviceList.user_service).length !== 0 &&
         appointmentsList.user_appointment !== "" ? (
           <Button
+            variant="outline-warning"
             onClick={handleClick}
             style={{
               marginTop: "30px",
+              background: "#333",
             }}
           >
             Next
