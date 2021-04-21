@@ -14,8 +14,11 @@ import {
   USER_UPDATE_PROFILE_REQUEST,
   USER_UPDATE_PROFILE_SUCCESS,
   USER_UPDATE_PROFILE_FAIL,
-  USER_UPDATE_PROFILE_RESET,
+  USER_LIST_REQUEST,
+  USER_LIST_SUCCESS,
+  USER_LIST_FAIL,
 } from "../constants/userConstants";
+import { APPOINTMENTS_MY_LIST_RESET } from "../constants/appointmentsConstants";
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -53,6 +56,7 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: USER_DETAILS_RESET });
+  dispatch({ type: APPOINTMENTS_MY_LIST_RESET });
 };
 
 export const register = (name, email, password) => async (dispatch) => {
@@ -153,6 +157,26 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: USER_UPDATE_PROFILE_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+export const listUsers = () => async (dispatch) => {
+  try {
+    dispatch({ type: USER_LIST_REQUEST });
+
+    const { data } = await axios.get(`/api/users`);
+
+    dispatch({
+      type: USER_LIST_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: USER_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
