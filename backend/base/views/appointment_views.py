@@ -26,7 +26,10 @@ def getAppointments(request):
 @permission_classes([IsAuthenticated])
 def getMyAppointments(request):
      user = request.user
-     appointments=user.appointment_set.all()
+     if user.is_staff:
+          appointments=user.barber.appointment_set.all()
+     else:
+          appointments=user.appointment_set.all()
      serializer = AppointmentSerializer(appointments,many= True)
      return Response(serializer.data)
 @api_view(['GET'])
