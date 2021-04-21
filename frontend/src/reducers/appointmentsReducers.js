@@ -5,6 +5,10 @@ import {
   APPOINTMENT_USER_SET,
   APPOINTMENT_USER_RESET,
   APPOINTMENT_IS_PAID,
+  APPOINTMENTS_MY_LIST_REQUEST,
+  APPOINTMENTS_MY_LIST_SUCCESS,
+  APPOINTMENTS_MY_LIST_FAIL,
+  APPOINTMENTS_MY_LIST_RESET,
 } from "../constants/appointmentsConstants";
 
 export const appointmentsReducer = (
@@ -29,6 +33,34 @@ export const appointmentsReducer = (
     case APPOINTMENT_IS_PAID: {
       return { ...state, is_paid: action.is_paid };
     }
+    default:
+      return state;
+  }
+};
+
+export const appointmentsMyListReducer = (
+  state = { appointments: [] },
+  action
+) => {
+  switch (action.type) {
+    case APPOINTMENTS_MY_LIST_REQUEST: {
+      return { loading: true };
+    }
+    case APPOINTMENTS_MY_LIST_SUCCESS: {
+      return {
+        loading: false,
+        success: true,
+        appointments: action.payload,
+      };
+    }
+    case APPOINTMENTS_MY_LIST_FAIL: {
+      return {
+        loading: false,
+        error: action.payload,
+      };
+    }
+    case APPOINTMENTS_MY_LIST_RESET:
+      return { appointments: [] };
     default:
       return state;
   }
