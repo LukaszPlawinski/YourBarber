@@ -79,23 +79,37 @@ function CheckoutForm({ amount, barber, service, appointment, user }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <CardElement
-        options={{
-          style: {
-            base: {
-              fontSize: "16px",
-              backgroundColor: "white",
-              color: "#424770",
-              "::placeholder": {
-                color: "#aab7c4",
+      <fieldset className="FormGroup">
+        <CardElement
+          options={{
+            style: {
+              base: {
+                color: "#32325D",
+                fontWeight: 500,
+                fontFamily: "Source Code Pro, Consolas, Menlo, monospace",
+                fontSize: "16px",
+                fontSmoothing: "antialiased",
+
+                "::placeholder": {
+                  color: "#CFD7DF",
+                },
+                ":-webkit-autofill": {
+                  color: "#e39f48",
+                },
+              },
+              invalid: {
+                color: "#fff",
+                ":focus": {
+                  color: "#FA755A",
+                },
+                "::placeholder": {
+                  color: "#FFCCA5",
+                },
               },
             },
-            invalid: {
-              color: "#9e2146",
-            },
-          },
-        }}
-      />
+          }}
+        />
+      </fieldset>
       <Button style={{ marginTop: "20px" }} type="submit" disabled={!stripe}>
         Pay
       </Button>
