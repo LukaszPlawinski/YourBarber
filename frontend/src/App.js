@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Barbers from "./screens/Barbers";
 import Services from "./screens/Services";
 import Booking from "./screens/Booking";
+import Contact from "./screens/Contact";
 import Home from "./screens/Home";
 import LoginScreen from "./screens/LoginScreen";
 import RegisterScreen from "./screens/RegisterScreen";
@@ -31,6 +32,7 @@ function App() {
             path="/barberappointments"
             component={BarberAppointmentsScreen}
           />
+          <Route path="/contact" component={Contact} />
         </Container>
       </main>
       <Footer />
