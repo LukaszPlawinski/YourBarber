@@ -8,6 +8,7 @@ import { setBarber } from "../actions/barberActions";
 import { setUserService } from "../actions/serviceActions";
 import { Button } from "react-bootstrap";
 import Message from "../components/Message";
+import About from "../components/About";
 
 function Home() {
   const dispatch = useDispatch();
@@ -30,7 +31,11 @@ function Home() {
       </div>
     );
   } else {
-    return <div>Home</div>;
+    return (
+      <div>
+        <About />
+      </div>
+    );
   }
 }
 
