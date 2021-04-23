@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.navbar-dark .navbar-nav .nav-link {
+  width: 90px;
+  margin: 0 auto;
+  text-align: center;
+}
+.navbar-dark .navbar-brand {
+  text-align: center;
+}

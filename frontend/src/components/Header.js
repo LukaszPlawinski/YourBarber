@@ -34,7 +34,7 @@ function Header() {
           className="justify-content-center"
           id="responsive-navbar-nav"
         >
-          <Nav className="text-center ">
+          <Nav className="justify-content-center">
             <LinkContainer to="/home">
               <Nav.Link className="mt-2">About</Nav.Link>
             </LinkContainer>
@@ -45,7 +45,7 @@ function Header() {
               <Nav.Link className="mt-2">Barbers</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/home">
-              <Navbar.Brand className="ml-2">
+              <Navbar.Brand className="mr-0">
                 <img
                   src="/images/Logo.png"
                   width="50"
@@ -60,7 +60,7 @@ function Header() {
             </LinkContainer>
             {userInfo ? (
               <NavDropdown
-                className="mt-2 ml-2"
+                className="mt-2 "
                 title={userInfo.name}
                 id="username"
               >
