@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link, RouteComponentProps } from "react-router-dom";
-import { Form, Button, Row, Col, Table } from "react-bootstrap";
+import React, { useEffect } from "react";
+import { Row, Col, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -60,7 +59,7 @@ function MyAppointmentsScreen({ history }) {
                 <tr>
                   <React.Fragment>
                     <td>{appointment.date.slice(0, 10)}</td>
-                    <td>{appointment.date.slice(11, -4)}</td>
+                    <td>{appointment.date.slice(11, -9)}</td>
                   </React.Fragment>
 
                   {users.map((user) =>
