@@ -30,7 +30,7 @@ function ContactDetails() {
         <Col xs={12} md={4}>
           <Card className="text-center my-4" style={{ border: "none" }}>
             <Card.Body>
-              <Card.Title className="mb-4">Oppening hours</Card.Title>
+              <Card.Title className="mb-4">Opening hours</Card.Title>
               <Card.Text>
                 <p>Mon-Fri: 8am-5pm</p>
                 <p>Sat-Sun: Closed</p>
