@@ -43,7 +43,7 @@ function Barbers({ location }) {
             marginTop: "30px",
           }}
         >
-          Book appointment
+          Next
         </Button>
       ) : null}
     </div>
