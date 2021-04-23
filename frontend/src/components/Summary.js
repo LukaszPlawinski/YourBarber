@@ -3,10 +3,16 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
 import { Table } from "react-bootstrap";
+import setHours from "date-fns/setHours";
 
 const stripePromise = loadStripe(process.env.REACT_APP_PK_STRIPE); // pk stripe key into brackets
 
 function Summary({ barber, service, appointment, history, user }) {
+  const UTCDateToLocal = (date) => {
+    const newTime =
+      date.toLocaleString().slice(11, -6) + date.toLocaleString().slice(18);
+    return newTime;
+  };
   return (
     <div>
       <h4 className="mb-4">Appointment Details</h4>
@@ -20,13 +26,19 @@ function Summary({ barber, service, appointment, history, user }) {
             <td>Barber: &nbsp;&nbsp;{barber.nickname}</td>
           </tr>
           <tr>
-            <td>Date: &nbsp;&nbsp;{appointment.toISOString().slice(0, 10)}</td>
+            <td>
+              Date: &nbsp;&nbsp;
+              {appointment.toISOString().slice(0, 10)}
+            </td>
           </tr>
           <tr>
-            <td>Time: &nbsp;&nbsp;{appointment.toISOString().slice(11, -8)}</td>
+            <td>
+              Time: &nbsp;&nbsp;
+              {UTCDateToLocal(appointment)}
+            </td>
           </tr>
           <tr>
-            <td>Cost: &nbsp;&nbsp;{service.price} euro</td>
+            <td>Cost: &nbsp;&nbsp;{service.price} &euro;</td>
           </tr>
         </tbody>
       </Table>
