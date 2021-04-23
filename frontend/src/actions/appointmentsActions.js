@@ -11,11 +11,21 @@ import {
   APPOINTMENTS_MY_LIST_FAIL,
 } from "../constants/appointmentsConstants";
 
-export const setAppointments = () => async (dispatch) => {
+export const setAppointments = () => async (dispatch, getState) => {
   try {
     dispatch({ type: APPOINTMENTS_SET_REQUEST });
+    const {
+      userLogin: { userInfo },
+    } = getState();
 
-    const { data } = await axios.get("/api/appointments");
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get("/api/appointments", config);
 
     dispatch({
       type: APPOINTMENTS_SET_SUCCESS,
