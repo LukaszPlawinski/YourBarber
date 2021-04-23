@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setAppointments } from "../actions/appointmentsActions";
 import DatePicker from "react-datepicker";
@@ -10,7 +10,7 @@ import parseISO from "date-fns/parseISO";
 
 function Appointments({ barber }) {
   const dispatch = useDispatch();
-  const { error, loading, appointments, user_appointment } = useSelector(
+  const { appointments, user_appointment } = useSelector(
     (state) => state.appointmentsList
   );
   useEffect(() => {
@@ -18,15 +18,16 @@ function Appointments({ barber }) {
   }, [dispatch]);
 
   const handleDataChange = (date) => {
+    console.log(date);
     dispatch(setUserDate(date));
   };
 
   const filterPassedTime = (time) => {
-    var answer = true;
-
     const appointmentDates = appointments.map((appointment) => {
       if (barber._id === appointment.barber) {
         return parseISO(appointment.date).getTime();
+      } else {
+        return null;
       }
     });
 
