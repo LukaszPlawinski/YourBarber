@@ -12,7 +12,7 @@ function About() {
     <div>
       <FormContainer>
         <Row>
-          <Col>
+          <Col md={6}>
             <h4 className="mb-5">About us</h4>
             <p>
               Your Barber Shop was created for real guys who demand more than a
@@ -40,7 +40,7 @@ function About() {
               Book Now
             </Button>
           </Col>
-          <Col>
+          <Col md={6}>
             <img src="/images/about.jpg" alt="" />
           </Col>
         </Row>
