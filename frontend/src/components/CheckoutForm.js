@@ -1,17 +1,19 @@
 import React from "react";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { Button } from "react-bootstrap";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setAppointmentIsPaid } from "../actions/appointmentsActions";
 import axios from "axios";
 
-import { useHistory, withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function CheckoutForm({ amount, barber, service, appointment, user }) {
   const dispatch = useDispatch();
   const stripe = useStripe();
   let history = useHistory();
-
+  const printUser = () => {
+    console.log(user);
+  };
   const elements = useElements();
   const handleSubmit = async (event) => {
     // Block native form submission.
@@ -33,9 +35,12 @@ function CheckoutForm({ amount, barber, service, appointment, user }) {
       console.log("[error]", error);
     } else {
       console.log("[PaymentMethod]", paymentMethod.id);
+
       const bodyFormData = new FormData();
       bodyFormData.append("amount", parseFloat(amount));
       bodyFormData.append("currency", "eur");
+      bodyFormData.append("customer", user.email);
+
       const response = await axios({
         method: "post",
         url: "/api/appointments/createPaymentIntent",
@@ -51,8 +56,6 @@ function CheckoutForm({ amount, barber, service, appointment, user }) {
           payment_method: paymentMethod.id,
         });
 
-        console.log(barber, service, appointment.toISOString());
-
         const bodyAppointmentData = new FormData();
         bodyAppointmentData.append("barber", barber._id);
         bodyAppointmentData.append("service", service._id);
@@ -66,9 +69,9 @@ function CheckoutForm({ amount, barber, service, appointment, user }) {
           data: bodyAppointmentData,
           headers: {
             "Content-Type": "multipart/form-data",
+            Authorization: `Bearer ${user.token}`,
           },
         });
-        console.log("Appointment created");
         dispatch(setAppointmentIsPaid(true));
         history.push("/home");
       } catch (err) {
@@ -116,6 +119,7 @@ function CheckoutForm({ amount, barber, service, appointment, user }) {
         variant="outline-warning"
         type="submit"
         disabled={!stripe}
+        onClick={printUser}
       >
         Pay
       </Button>
