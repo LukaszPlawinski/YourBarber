@@ -10,7 +10,7 @@ function ContactDetails() {
             <Card.Body>
               <Card.Title className="mb-4">Address</Card.Title>
               <Card.Text>
-                <p>Mullingar Rd</p>
+                <p>7 Mullingar Rd.</p>
                 <p>Dublin</p>
               </Card.Text>
             </Card.Body>
@@ -21,8 +21,8 @@ function ContactDetails() {
             <Card.Body>
               <Card.Title className="mb-4">Get in Touch</Card.Title>
               <Card.Text>
-                <p>Contac@contact.com</p>
-                <p>0894213123</p>
+                <p>Contact@yourbarber.ie</p>
+                <p>0891234567</p>
               </Card.Text>
             </Card.Body>
           </Card>
