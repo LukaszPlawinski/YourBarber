@@ -24,7 +24,7 @@ function Home() {
   if (is_paid == true) {
     return (
       <div>
-        <Message variant="light">Succesfully created appointment!</Message>
+        <Message variant="light">Appointment Is Successfully Created !</Message>
         <Button variant="outline-warning" onClick={handleClick}>
           Okay
         </Button>
