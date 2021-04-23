@@ -9,7 +9,7 @@ function Barber({ barber }) {
   const handleClick = () => {
     dispatch(setBarber(barber));
   };
-  if (barberList.user_barber._id == barber._id) {
+  if (barberList.user_barber._id === barber._id) {
     return (
       <Card
         style={{ border: "2px solid orange" }}
