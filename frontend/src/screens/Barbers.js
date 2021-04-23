@@ -35,7 +35,7 @@ function Barbers({ location }) {
         </Row>
       )}
       {Object.keys(barberList.user_barber).length !== 0 &&
-      location.pathname == "/barbers" ? (
+      location.pathname === "/barbers" ? (
         <Button
           variant="outline-warning"
           onClick={handleClick}
