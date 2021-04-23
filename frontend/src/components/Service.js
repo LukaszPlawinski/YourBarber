@@ -9,19 +9,19 @@ function Service({ service }) {
   const handleClick = () => {
     dispatch(setUserService(service));
   };
-  if (serviceList.user_service._id == service._id) {
+  if (serviceList.user_service._id === service._id) {
     return (
       <ListGroup.Item
         style={{ cursor: "pointer", border: "2px solid orange" }}
         onClick={handleClick}
       >
-        {service.serviceName} - {service.price}
+        {service.serviceName} - {service.price} &euro;
       </ListGroup.Item>
     );
   } else {
     return (
       <ListGroup.Item style={{ cursor: "pointer" }} onClick={handleClick}>
-        {service.serviceName} - {service.price}
+        {service.serviceName} - {service.price} &euro;
       </ListGroup.Item>
     );
   }
