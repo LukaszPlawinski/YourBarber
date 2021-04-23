@@ -38,7 +38,7 @@ function Services({ location }) {
         </Row>
       )}
       {Object.keys(serviceList.user_service).length !== 0 &&
-      location.pathname == "/services" ? (
+      location.pathname === "/services" ? (
         <Button
           variant="outline-warning"
           onClick={handleClick}
