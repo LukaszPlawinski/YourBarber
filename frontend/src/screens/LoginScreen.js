@@ -31,7 +31,7 @@ function LoginScreen({ location, history }) {
   };
   return (
     <FormContainer>
-      <h1>Sign In</h1>
+      <h3 className="mb-4">Login</h3>
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>

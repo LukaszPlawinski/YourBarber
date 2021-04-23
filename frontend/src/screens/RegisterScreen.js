@@ -38,7 +38,7 @@ function RegisterScreen({ location, history }) {
   };
   return (
     <FormContainer>
-      <h1>Register</h1>
+      <h3 className="mb-4">Register</h3>
       {message && <Message variant="danger">{message}</Message>}
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}

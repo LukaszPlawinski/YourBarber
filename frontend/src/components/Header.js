@@ -34,7 +34,7 @@ function Header() {
           className="justify-content-center"
           id="responsive-navbar-nav"
         >
-          <Nav className="text-center ml-4">
+          <Nav className="text-center ">
             <LinkContainer to="/home">
               <Nav.Link className="mt-2">About</Nav.Link>
             </LinkContainer>
@@ -45,7 +45,7 @@ function Header() {
               <Nav.Link className="mt-2">Barbers</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/home">
-              <Navbar.Brand className="ml-3">
+              <Navbar.Brand className="ml-2">
                 <img
                   src="/images/Logo.png"
                   width="50"
