@@ -16,6 +16,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView
 from django.utils import timezone
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def getAppointments(request):
      appointments = Appointment.objects.all()
      serializer = AppointmentSerializer(appointments, many = True)
@@ -40,7 +41,9 @@ def getAppointmentById(request, pk):
      return Response(serializer.data)
 
 @api_view(['POST'])
+@permission_classes([IsAuthenticated])
 def createAppointment(request):
+     user = request.user
      data=request.data
      appointment = Appointment.objects.create(
           user = User.objects.get(id=data['user']),
@@ -62,7 +65,8 @@ def createPaymentIntent(request):
      paymentIntent = stripe.PaymentIntent.create(
           amount=int(data['amount'])*100,
           currency=data['currency'],
-          payment_method_types=["card"]
+          payment_method_types=["card"],
+          description=data['customer']
      )
 
      return Response(paymentIntent['client_secret'])

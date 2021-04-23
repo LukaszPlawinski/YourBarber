@@ -71,6 +71,7 @@ def getUserProfile(request):
      return Response(serializer.data)
 
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def getUsers(request):
      users = User.objects.all()
      serializer = UserSerializer(users, many = True)
