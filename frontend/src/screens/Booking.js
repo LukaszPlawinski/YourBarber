@@ -6,7 +6,7 @@ import Services from "./Services";
 import Appointments from "./Appointments";
 import Summary from "../components/Summary";
 import Message from "../components/Message";
-import { Button, Row, Col } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 function Booking() {
   const [state, setState] = useState({
