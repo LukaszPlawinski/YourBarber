@@ -37,4 +37,4 @@ class Appointment (models.Model):
      _id = models.AutoField(primary_key=True,editable=False)
 
      def __str__(self):
-          return self.date.strftime("%m/%d/%Y, %H:%M:%S")
+          return  f'{self.date.strftime("%m/%d/%Y")},       {self.user}'
