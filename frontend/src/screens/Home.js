@@ -21,7 +21,7 @@ function Home() {
     dispatch(setAppointmentIsPaid(false));
   };
 
-  if (is_paid == true) {
+  if (is_paid === true) {
     return (
       <div>
         <Message variant="light">Appointment Is Successfully Created !</Message>
