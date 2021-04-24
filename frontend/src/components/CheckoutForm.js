@@ -4,9 +4,9 @@ import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { setAppointmentIsPaid } from "../actions/appointmentsActions";
 import axios from "axios";
-
 import { useHistory } from "react-router-dom";
 
+// That component handles stripe payment
 function CheckoutForm({ amount, barber, service, appointment, user }) {
   const dispatch = useDispatch();
   const stripe = useStripe();

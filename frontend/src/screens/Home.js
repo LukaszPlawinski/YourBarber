@@ -9,6 +9,7 @@ import { setUserService } from "../actions/serviceActions";
 import { Button } from "react-bootstrap";
 import Message from "../components/Message";
 import About from "../components/About";
+import CookieConsent from "react-cookie-consent";
 
 function Home() {
   const dispatch = useDispatch();
@@ -34,6 +35,10 @@ function Home() {
     return (
       <div>
         <About />
+        <CookieConsent buttonText="Ok">
+          This website uses cookies to enhance the user experience. By clicking
+          Ok you are agreeing to that.
+        </CookieConsent>
       </div>
     );
   }

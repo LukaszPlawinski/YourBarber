@@ -11,6 +11,7 @@ import {
   APPOINTMENTS_MY_LIST_FAIL,
 } from "../constants/appointmentsConstants";
 
+// Thit action returns all appointments
 export const setAppointments = () => async (dispatch, getState) => {
   try {
     dispatch({ type: APPOINTMENTS_SET_REQUEST });
@@ -42,18 +43,22 @@ export const setAppointments = () => async (dispatch, getState) => {
   }
 };
 
+// This action sets appointment date selected by user
 export const setUserDate = (date) => async (dispatch) => {
   dispatch({
     type: APPOINTMENT_USER_SET,
     user_date: date,
   });
 };
+
+// This action resets appointment date selected by user
 export const appointmentUserReset = () => async (dispatch) => {
   dispatch({
     type: APPOINTMENT_USER_RESET,
   });
 };
 
+// Changes state of is_paid
 export const setAppointmentIsPaid = (is_paid) => (dispatch) => {
   dispatch({
     type: APPOINTMENT_IS_PAID,
@@ -61,6 +66,7 @@ export const setAppointmentIsPaid = (is_paid) => (dispatch) => {
   });
 };
 
+// List of All appointments for specific user/barber
 export const listMyAppointments = () => async (dispatch, getState) => {
   try {
     dispatch({

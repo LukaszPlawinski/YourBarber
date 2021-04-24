@@ -19,7 +19,7 @@ import {
   USER_LIST_FAIL,
 } from "../constants/userConstants";
 import { APPOINTMENTS_MY_LIST_RESET } from "../constants/appointmentsConstants";
-
+// responsible for user login
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({
@@ -52,6 +52,7 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
+//responsible for user logout
 export const logout = () => (dispatch) => {
   localStorage.removeItem("userInfo");
   dispatch({ type: USER_LOGOUT });
@@ -59,6 +60,7 @@ export const logout = () => (dispatch) => {
   dispatch({ type: APPOINTMENTS_MY_LIST_RESET });
 };
 
+//responsible for user registration
 export const register = (name, email, password) => async (dispatch) => {
   try {
     dispatch({
@@ -95,6 +97,7 @@ export const register = (name, email, password) => async (dispatch) => {
   }
 };
 
+// responsible for displaying user profile
 export const getUserDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -127,6 +130,8 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     });
   }
 };
+
+// responsible for updating user profile
 export const updateUserProfile = (user) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -164,6 +169,8 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     });
   }
 };
+
+// displays list of all users
 export const listUsers = () => async (dispatch, getState) => {
   try {
     dispatch({ type: USER_LIST_REQUEST });

@@ -7,6 +7,7 @@ import {
   BARBER_USER_RESET,
 } from "../constants/barberConstants";
 
+// List all barbers
 export const listBarbers = () => async (dispatch) => {
   try {
     dispatch({ type: BARBER_LIST_REQUEST });
@@ -28,12 +29,15 @@ export const listBarbers = () => async (dispatch) => {
   }
 };
 
+// set barber selected by user
 export const setBarber = (barber_id) => (dispatch) => {
   dispatch({
     type: BARBER_USER_SET,
     user_barber: barber_id,
   });
 };
+
+// reset barber selected by user
 export const resetUserBarber = () => (dispatch) => {
   dispatch({
     type: BARBER_USER_RESET,

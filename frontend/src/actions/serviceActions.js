@@ -7,6 +7,7 @@ import {
   SERVICE_USER_RESET,
 } from "../constants/serviceConstants";
 
+// List all Services
 export const listServices = () => async (dispatch) => {
   try {
     dispatch({ type: SERVICE_LIST_REQUEST });
@@ -28,12 +29,15 @@ export const listServices = () => async (dispatch) => {
   }
 };
 
+// set service selected by user
 export const setUserService = (service_id) => async (dispatch) => {
   dispatch({
     type: SERVICE_USER_SET,
     user_service: service_id,
   });
 };
+
+// set service selected by user
 export const resetUserService = () => async (dispatch) => {
   dispatch({
     type: SERVICE_USER_RESET,
