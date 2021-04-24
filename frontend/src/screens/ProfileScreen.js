@@ -103,7 +103,7 @@ function ProfileScreen({ history }) {
               onChange={(e) => setConfirmPassword(e.target.value)}
             ></Form.Control>
           </Form.Group>
-          <Button type="submit" variant="primary">
+          <Button type="submit" variant="outline-warning">
             Update
           </Button>
         </Form>
