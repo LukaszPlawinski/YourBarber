@@ -28,6 +28,7 @@ function Header() {
         bg="dark"
         variant="dark"
         className="justify-content-end"
+        collapseOnSelect
       >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse
