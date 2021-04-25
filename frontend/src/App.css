@@ -45,3 +45,6 @@
 .navbar-dark .navbar-brand {
   text-align: center;
 }
+.react-datepicker {
+  right: 50px;
+}
