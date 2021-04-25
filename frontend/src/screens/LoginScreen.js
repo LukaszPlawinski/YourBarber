@@ -30,7 +30,7 @@ function LoginScreen({ location, history }) {
     dispatch(login(email, password));
   };
   return (
-    <FormContainer>
+    <FormContainer size={6}>
       <h3 className="mb-4">Login</h3>
       {error && <Message variant="danger">{error}</Message>}
       {loading && <Loader />}
