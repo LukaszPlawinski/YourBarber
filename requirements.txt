@@ -65,7 +65,6 @@ PyQt5-sip==12.8.1
 pyrsistent==0.17.3
 python-dateutil
 pytz==2020.5
-pywin32==300
 pywinpty==0.5.7
 pyzmq==22.0.3
 qtconsole==5.0.3
