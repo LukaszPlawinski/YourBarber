@@ -8,6 +8,7 @@ backcall==0.2.0
 bleach==3.3.0
 certifi==2020.12.5
 cffi==1.14.5
+charset-normalizer==2.0.4
 click==8.0.0
 colorama==0.4.4
 decorator==4.4.2
@@ -22,6 +23,9 @@ Flask==2.0.0
 Flask-Login==0.5.0
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.0
+gunicorn==20.1.0
+heroku==0.1.4
+idna==3.2
 ipykernel==5.5.0
 ipython==7.21.0
 ipython-genutils==0.2.0
@@ -59,13 +63,14 @@ PyQt5==5.15.4
 PyQt5-Qt5==5.15.2
 PyQt5-sip==12.8.1
 pyrsistent==0.17.3
-python-dateutil==2.8.1
+python-dateutil==1.5
 pytz==2020.5
 pywin32==300
 pywinpty==0.5.7
 pyzmq==22.0.3
 qtconsole==5.0.3
 QtPy==1.9.0
+requests==2.26.0
 selenium==3.141.0
 Send2Trash==1.5.0
 six==1.15.0
