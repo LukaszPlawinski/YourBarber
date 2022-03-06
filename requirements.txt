@@ -24,7 +24,7 @@ Flask-Login==0.5.0
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.0
 gunicorn==20.1.0
-heroku==0.1.4
+heroku
 idna==3.2
 ipykernel==5.5.0
 ipython==7.21.0
@@ -35,7 +35,7 @@ jedi==0.18.0
 Jinja2==3.0.0
 jsonschema==3.2.0
 jupyter==1.0.0
-jupyter-client==6.1.12
+jupyter-client
 jupyter-console==6.3.0
 jupyter-core==4.7.1
 jupyterlab-pygments==0.1.2
@@ -63,9 +63,9 @@ PyQt5==5.15.4
 PyQt5-Qt5==5.15.2
 PyQt5-sip==12.8.1
 pyrsistent==0.17.3
-python-dateutil==1.5
+python-dateutil
 pytz==2020.5
-pywin32==303;platform_system == "Windows"
+pywin32==300
 pywinpty==0.5.7
 pyzmq==22.0.3
 qtconsole==5.0.3
