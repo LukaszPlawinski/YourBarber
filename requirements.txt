@@ -65,7 +65,7 @@ PyQt5-sip==12.8.1
 pyrsistent==0.17.3
 python-dateutil==1.5
 pytz==2020.5
-pywin32==300
+pywin32==303;platform_system == "Windows"
 pywinpty==0.5.7
 pyzmq==22.0.3
 qtconsole==5.0.3
