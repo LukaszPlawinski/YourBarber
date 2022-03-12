@@ -64,7 +64,7 @@ function Header() {
                 className="mt-2 "
                 title={userInfo.name}
                 id="username"
-                style={{ wordWrap: "break-all", whiteSpace: "normal" }}
+                style={{ wordWrap: "break-word", whiteSpace: "normal" }}
               >
                 <LinkContainer to="/profile">
                   <NavDropdown.Item>Profile</NavDropdown.Item>
