@@ -100,7 +100,7 @@ DATABASES = {
         'USER': 'postgres',
         'PASSWORD': os.environ.get('DK'),
         'HOST':os.environ.get('DATABASE_ENDPOINT'),
-        'PORT':'5433'
+        'PORT':'5432'
     }
 }
 
