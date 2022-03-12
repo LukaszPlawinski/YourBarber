@@ -30,7 +30,7 @@ function Services({ location }) {
         <Row className="justify-content-center">
           <ListGroup variant="flush">
             {services.map((service) => (
-              <Col key={service._id} sm={12}>
+              <Col key={service._id}>
                 <Service service={service} />
               </Col>
             ))}
